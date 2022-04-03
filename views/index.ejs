@@ -3,5 +3,23 @@
     <h2>
         <%= title %>
     </h2>
+    <form>
+        <div><label>Name:
+                <input type="text" name="submitted-name" autocomplete="name">
+            </label></div>
+        <div><label>Studentnummer:
+                <input type="text" name="submitted-nameNumber" autocomplete="nameNumber">
+            </label></div>
+        <button>Save</button>
+    </form>
+
+    <form method="post">
+        <fieldset>
+            <legend>Web app from scratch</legend>
+            <h2>Welke docenten had je voor dit vak?</h2>
+            <div><label for="name-a"><input id="name-b" type="radio" name="name">Joost</label></div>
+            <div><label for="name-b"><input id="name-b" type="radio" name="name">Koop</label></div>
+        </fieldset>
+    </form>
 
     <%- include('partials/footer'); -%>
