@@ -4,21 +4,135 @@
         <%= title %>
     </h2>
     <form>
-        <div><label>Name:
-                <input type="text" name="submitted-name" autocomplete="name">
-            </label></div>
-        <div><label>Studentnummer:
-                <input type="text" name="submitted-nameNumber" autocomplete="nameNumber">
-            </label></div>
-        <button>Save</button>
+        <fieldset>
+            <div><label>Name:
+                    <input type="text" name="studentName">
+                </label></div>
+            <div><label>Studentnummer:
+                    <input type="text" name="studentNumber">
+                </label></div>
+            <button>Save</button>
+        </fieldset>
     </form>
 
-    <form method="post">
+    <form method="get" action="/getData">
         <fieldset>
-            <legend>Web app from scratch</legend>
+            <legend>Vak &#45; Web app from scratch</legend>
             <h2>Welke docenten had je voor dit vak?</h2>
-            <div><label for="name-a"><input id="name-b" type="radio" name="name">Joost</label></div>
-            <div><label for="name-b"><input id="name-b" type="radio" name="name">Koop</label></div>
+            <p>Meerdere antwoorden mogelijk</p>
+            <div><label for="name-a"><input id="name-a" type="checkbox" name="name">Joost</label></div>
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Koop</label></div>
+
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Sanne</label></div>
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Vasilis</label></div>
+
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Justus</label></div>
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Declan</label></div>
+
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Paul</label></div>
+            <div><label for="name-b"><input id="name-b" type="checkbox" name="name">Robert</label></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch</legend>
+            <h2>In welke weken heb je het vak WAFS gevolgd? </h2>
+            <div><label for="date-a"><input id="date-a" type="radio" name="date-a" value="">Week 1 t/m 4</label>
+            </div>
+
+            <div><label for="date-b"><input id="date-b" type="radio" name="date-b" value="">Week 4 t/m 7</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>Wat vond je van het vak WAFS?</h2>
+            <p>Geef een cijfer van 1 t/m 10, waar 1 de laagste score is</p>
+            <div><label for="wafs-grade-1"><input type="radio" name="wafs-grade" id="wafs-grade-1" value="1">1</label>
+            </div>
+            <div><label for="wafs-grade-2"><input type="radio" name="wafs-grade" id="wafs-grade-2" value="2">2</label>
+            </div>
+            <div><label for="wafs-grade-3"><input type="radio" name="wafs-grade" id="wafs-grade-3" value="3">3</label>
+            </div>
+            <div><label for="wafs-grade-4"><input type="radio" name="wafs-grade" id="wafs-grade-4" value="4">4</label>
+            </div>
+            <div><label for="wafs-grade-5"><input type="radio" name="wafs-grade" id="wafs-grade-5" value="5">5</label>
+            </div>
+            <div><label for="wafs-grade-6"><input type="radio" name="wafs-grade" id="wafs-grade-6" value="6">6</label>
+            </div>
+            <div><label for="wafs-grade-7"><input type="radio" name="wafs-grade" id="wafs-grade-7" value="7">7</label>
+            </div>
+            <div><label for="wafs-grade-8"><input type="radio" name="wafs-grade" id="wafs-grade-8" value="8">8</label>
+            </div>
+            <div><label for="wafs-grade-9"><input type="radio" name="wafs-grade" id="wafs-grade-9" value="9">9</label>
+            </div>
+            <div><label for="wafs-grade-10"><input type="radio" name="wafs-grade" id="wafs-grade-10"
+                        value="10">10</label></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>Hoe moeilijk vond je het vak WAFS?</h2>
+            <p>Was de lesstof te volgen?</p>
+            <select name="wafs-difficult-level" id="wafs-difficult">
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="very-easy">Heel makkelijk</option>
+                <option value="easy">Makkelijk</option>
+                <option value="less-difficult">Een beetje moeilijk</option>
+                <option value="difficult">Moeilijk</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
+            <select name="wafs-clarity-level" id="wafs-clarity">
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="a">Ik begreep het vak helemaal niet goed</option>
+                <option value="b">Ik begreep een beetje</option>
+                <option value="c">Ik begreep ongeveer de helft</option>
+                <option value="d">Ik begreep bijna alles</option>
+                <option value="e">Ik begreep alles</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
+            <p>Geef een cijfer van 1 t/m 10, een score van 1 geeft aan dat je het totaal niet begrijpt.</p>
+            <div><label for="wafs-understand-1"><input type="radio" name="wafs-grade" id="wafs-understand-1"
+                        value="1">1</label>
+            </div>
+            <div><label for="wafs-understand-2"><input type="radio" name="wafs-grade" id="wafs-understand-2"
+                        value="2">2</label>
+            </div>
+            <div><label for="wafs-understand-3"><input type="radio" name="wafs-grade" id="wafs-understand-3"
+                        value="3">3</label>
+            </div>
+            <div><label for="wafs-understand-4"><input type="radio" name="wafs-grade" id="wafs-understand-4"
+                        value="4">4</label>
+            </div>
+            <div><label for="wafs-understand-5"><input type="radio" name="wafs-grade" id="wafs-understand-5"
+                        value="5">5</label>
+            </div>
+            <div><label for="wafs-understand-6"><input type="radio" name="wafs-grade" id="wafs-understand-6"
+                        value="6">6</label>
+            </div>
+            <div><label for="wafs-understand-7"><input type="radio" name="wafs-grade" id="wafs-understand-7"
+                        value="7">7</label>
+            </div>
+            <div><label for="wafs-understand-8"><input type="radio" name="wafs-grade" id="wafs-understand-8"
+                        value="8">8</label>
+            </div>
+            <div><label for="wafs-understand-9"><input type="radio" name="wafs-grade" id="wafs-gunderstand-9"
+                        value="9">9</label>
+            </div>
+            <div><label for="wafs-understand-10"><input type="radio" name="wafs-grade" id="wafs-understand-10"
+                        value="10">10</label></div>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Vak &#45; </legend>
         </fieldset>
     </form>
 
