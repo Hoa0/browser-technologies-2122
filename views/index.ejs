@@ -1,7 +1,7 @@
 <%- include('partials/head'); -%>
     <form method="post" enctype="application/x-www-form-urlencoded" action="/">
         <fieldset>
-            <legend>Vul je naam in</legend>
+            <legend>Vul je gegevens in</legend>
             <label for="studentName">Name:
                 <input type="text" name="student_name" placeholder="studentnaam" required>
             </label>
@@ -12,7 +12,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch</legend>
-            <h2>Welke docenten had je voor dit vak?</h2>
+            <h2>1. Welke docenten had je voor dit vak?</h2>
             <p>Meerdere antwoorden mogelijk</p>
             <label for="teacher_a">
                 <input id="teacher_a" type="radio" name="teacher_names" value="Joost en Koop">Joost en Koop
@@ -27,7 +27,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch</legend>
-            <h2>In welke weken heb je het vak WAFS gevolgd? </h2>
+            <h2>2. In welke weken heb je het vak WAFS gevolgd? </h2>
             <div><label for="date_week_1"><input id="date_week_1" type="radio" name="week" value="week 1 t/m 4">Week 1
                     t/m 4</label>
             </div>
@@ -39,7 +39,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch </legend>
-            <h2>Wat vond je van het vak WAFS?</h2>
+            <h2>3. Wat vond je van het vak WAFS?</h2>
             <p>Geef een cijfer van 1 t/m 10, waar 1 de laagste score is</p>
             <label for="wafs-grade_1"><input type="radio" name="wafs_grade" id="wafs_grade_1" value="1"
                     required>1</label>
@@ -56,7 +56,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch </legend>
-            <h2>Hoe moeilijk vond je het vak WAFS?</h2>
+            <h2>4. Hoe moeilijk vond je het vak WAFS?</h2>
             <p>Was de lesstof te volgen?</p>
             <select name="wafs_difficult_level" id="wafs_difficult" required>
                 <option value="" selected disabled>Geef je mening</option>
@@ -69,7 +69,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch </legend>
-            <h2>Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
+            <h2>5. Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
             <select name="wafs_clarity_level" id="wafs_clarity" required>
                 <option value="" selected disabled>Geef je mening</option>
                 <option value="Begreep het vak niet">Ik begreep het vak helemaal niet goed</option>
@@ -82,7 +82,7 @@
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch </legend>
-            <h2>Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
+            <h2>6. Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
             <p>Geef een cijfer van 1 t/m 10, een score van 1 geeft aan dat je het totaal niet begrijpt.</p>
             <label for="wafs_understand_1"><input type="radio" name="wafs_rating" id="wafs_understand-1" value="1"
                     required>1</label>
