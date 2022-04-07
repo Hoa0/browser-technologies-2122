@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
   })
 })
 
+/**
+ * get data from input
+ */
 app.post('/', async (req, res) => {
   console.log(req.body);
 
