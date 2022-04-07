@@ -7,9 +7,6 @@ const {
 const bodyParser = require('body-parser')
 const port = process.env.port || 3003;
 
-// test db
-console.log(process.env.TESTVAR);
-
 let db = null;
 // function connectDB
 async function connectDB() {
@@ -34,70 +31,44 @@ connectDB()
   });
 
 app.use(express.static('static'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.set('view engine', 'ejs')
 
 
 app.get('/', (req, res) => {
-  /*let studentProfile = {};
-  studentProfile = await db
-    .collection('enqueteAnswer')*/
-
   res.render('index', {
     title: 'Enquete minor',
   })
 })
 
-/*
-app.get('/getData/:id', function (request, response) {
-  const fs = require('fs');
-  fs.readFile('./enqueteData.json', 'utf8', (err, data) => {
+app.post('/', async (req, res) => {
 
-    if (err) {
-      console.log(`Error reading file ${err}`);
-    } else {
-
-      // parse JSON string to JSON object
-      const databases = JSON.parse(data);
-
-      // print all databases
-      databases.forEach(db => {
-        console.log(`${db.name}: ${db.type}`);
-      });
-    }
-  });
-
-  try {
-
-    const data = fs.readFileSync('./enqueteData.json', 'utf8');
-
-    // parse JSON string to JSON object
-    const databases = JSON.parse(data);
-
-    // print all databases
-    databases.forEach(db => {
-      console.log(`${db.name}: ${db.type}`);
+  /* add*/
+  db.collection('enqueteAnswer')
+    .insertOne({
+      studentName: req.body.student_name,
+      studentNumber: req.body.student_number,
+      teacher: req.body.teacher_name,
+      week: req.body.week,
+      grade: req.body.wafs_grade,
+      subjectDifficult: req.body.wafs_difficult_level,
+      subjectClarity: req.body.wafs_clarity_level,
+      subjectfRating: req.body.wafs_rating
     });
+  console.log(req.body)
+  res.render('index', {
+    title: 'Enquete minor',
+  })
+})
 
-  } catch (err) {
-    console.log(`Error reading file: ${err}`);
-  }
+// page not found
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!");
 });
 
-let userInput
-app.post("/", (req, res) => {
-  console.log(userInput)
-  userInput = JSON.stringify(req.body.name)
-
-  fs.writeFile("enqueteData.json", userInput, "utf8", cb => {
-    console.log("het werkt")
-
-    res.render("index", {
-      title: 'Enquete minor',
-    })
-  })
-
-})
-*/
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
