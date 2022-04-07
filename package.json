@@ -2,7 +2,7 @@
   "name": "browser-technologies-2122",
   "version": "1.0.0",
   "description": "project for minor browser technologie",
-  "main": "app.js",
+  "main": "/app.js",
   "directories": {
     "example": "examples"
   },

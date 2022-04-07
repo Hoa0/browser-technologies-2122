@@ -9,6 +9,7 @@
 :root {
     --color-white: #f2e9e4;
     --color-black: #343a40;
+    --color-btn: #94d2bd;
 }
 
 body {
@@ -48,4 +49,22 @@ h1 {
 
 h2 {
     font-size: 1.2em;
+}
+
+form>div {
+    text-align: center;
+}
+
+button {
+    background-color: var(--color-btn);
+    padding: 0.8em;
+    border-radius: 0.3em;
+    border: 0.2em solid #b8dbcf;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+footer {
+    color: var(--color-white);
+    text-align: center;
 }
