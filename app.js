@@ -5,7 +5,7 @@ const {
   MongoClient
 } = require("mongodb");
 const bodyParser = require('body-parser')
-const port = process.env.port || 3003;
+const PORT = process.env.PORT || 3003;
 
 const client = new MongoClient(process.env.DB_URI, {
   retryWrites: true,
@@ -61,6 +61,6 @@ app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
