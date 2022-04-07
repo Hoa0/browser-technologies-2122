@@ -8,6 +8,7 @@ Enquete invullen over minor web development
 
 - [Opdrachten](#opdrachten)
 - [Concept](#concept)
+- [Functional layer](#Functionallayer)
 - [User Story](#UserStory)
 - [Wireflow](#wireflow)
 - [Installation](#Installation)
@@ -22,6 +23,10 @@ Opdracht 2: [Breek het web](https://github.com/Hoa0/browser-technologies-2122/wi
 
 Enquete overzicht <br />
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/concept-bt.png"  width="300">
+
+## Functional layer
+
+<img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/concept-styling-uit.png"  width="500">
 
 ## User Story
 
