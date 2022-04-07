@@ -20,7 +20,7 @@ Opdracht 2: [Breek het web](https://github.com/Hoa0/browser-technologies-2122/wi
 
 ## Concept
 
-Enquete overzicht
+Enquete overzicht <br />
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/concept-bt.png"  width="300">
 
 ## User Story
@@ -29,7 +29,7 @@ Enquete overzicht
 
 ## Wireflow
 
-<img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/schets-bt.png"  width="300">
+<img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/schets-bt.png"  width="500">
 
 ## Installation
 

@@ -64,6 +64,12 @@ button {
     color: var(--color-black);
 }
 
+/*page send*/
+#containerSend {
+    height: 60vh;
+    text-align: center;
+}
+
 footer {
     color: var(--color-white);
     text-align: center;
