@@ -1,43 +1,28 @@
 <%- include('partials/head'); -%>
     <form method="post" enctype="application/x-www-form-urlencoded" action="/">
         <fieldset>
-            <legend>Student</legend>
-            <div><label for="studentName">Name:
-                    <input type="text" name="student_name" required>
-                </label></div>
-            <div><label>Studentnummer:
-                    <input type="text" name="student_number" required>
-                </label></div>
+            <legend>Vul je naam in</legend>
+            <label for="studentName">Name:
+                <input type="text" name="student_name" placeholder="studentnaam" required>
+            </label>
+            <label>Studentnummer:
+                <input type="number" name="student_number" placeholder="studentnummer" required>
+            </label>
         </fieldset>
 
         <fieldset>
             <legend>Vak &#45; Web app from scratch</legend>
             <h2>Welke docenten had je voor dit vak?</h2>
             <p>Meerdere antwoorden mogelijk</p>
-            <div><label for="name_joost"><input id="name_joost" type="checkbox" name="name_teacher" value="Joost"
-                        required>Joost</label>
-            </div>
-            <div><label for="name_koop"><input id="name_koop" type="checkbox" name="name_teacher"
-                        value="Koop">Koop</label></div>
-
-            <div><label for="name_sanne"><input id="name_sanne" type="checkbox" name="name_teacher"
-                        value="Sanne">Sanne</label></div>
-            <div><label for="name_vasilis"><input id="name_vasilis" type="checkbox" name="name_teacher"
-                        value="Vasilis">Vasilis</label>
-            </div>
-
-            <div><label for="name_justus"><input id="name_justus" type="checkbox" name="name_teacher"
-                        value="Justus">Justus</label>
-            </div>
-            <div><label for="name_declan"><input id="name_declan" type="checkbox" name="name_teacher"
-                        value="Declan">Declan</label>
-            </div>
-
-            <div><label for="name_peter"><input id="name_peter" type="checkbox" name="name_teacher"
-                        value="Peter">Peter</label></div>
-            <div><label for="name_robert"><input id="name_robert" type="checkbox" name="name_teacher"
-                        value="Robert">Robert</label>
-            </div>
+            <label for="teacher_a">
+                <input id="teacher_a" type="radio" name="teacher_names" value="Joost en Koop">Joost en Koop
+            </label>
+            <label for="teacher_b">
+                <input id="teacher_b" type="radio" name="teacher_names" value="Sanne en Vasilis">Joost en Koop
+            </label>
+            <label for="teacher_c">
+                <input id="teacher_c" type="radio" name="teacher_names" value="Peter en Robert">Joost en Koop
+            </label>
         </fieldset>
 
         <fieldset>
@@ -75,10 +60,10 @@
             <p>Was de lesstof te volgen?</p>
             <select name="wafs_difficult_level" id="wafs_difficult" required>
                 <option value="" selected disabled>Geef je mening</option>
-                <option value="very easy">Heel makkelijk</option>
-                <option value="easy">Makkelijk</option>
-                <option value="less difficult">Een beetje moeilijk</option>
-                <option value="difficult">Moeilijk</option>
+                <option value="Heel makkelijk">Heel makkelijk</option>
+                <option value="Makkelijk">Makkelijk</option>
+                <option value="Een beetje moeilijk">Een beetje moeilijk</option>
+                <option value="Moeilijk">Moeilijk</option>
             </select>
         </fieldset>
 

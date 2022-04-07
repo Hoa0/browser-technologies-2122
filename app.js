@@ -1,34 +1,15 @@
+require("dotenv").config();
 const express = require('express')
 const app = express()
-const dotenv = require("dotenv").config();
 const {
   MongoClient
 } = require("mongodb");
 const bodyParser = require('body-parser')
 const port = process.env.port || 3003;
 
-let db = null;
-// function connectDB
-async function connectDB() {
-  // get URL from .env file
-  const uri = process.env.DB_URI;
-  // make connection to database
-  const options = {
-    useUnifiedTopology: true
-  };
-  const client = new MongoClient(uri, options);
-  await client.connect();
-  db = await client.db(process.env.DB_NAME);
-}
-connectDB()
-  .then(() => {
-    // if succesfull connections is made, show a message
-    console.log("We have a connection to Mongo!");
-  })
-  .catch((error) => {
-    // if connnection is unsuccesful, show errors
-    console.log(error);
-  });
+const client = new MongoClient(process.env.DB_URI, {
+  retryWrites: true,
+})
 
 app.use(express.static('static'))
 app.use(bodyParser.json());
@@ -45,23 +26,34 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', async (req, res) => {
+  console.log(req.body);
 
-  /* add*/
-  db.collection('enqueteAnswer')
-    .insertOne({
+  try {
+    await client.connect();
+    const database = client.db('minorEnquete');
+    const listAnswer = database.collection('enqueteAnswer');
+    const addAnswer = {
       studentName: req.body.student_name,
       studentNumber: req.body.student_number,
-      teacher: req.body.teacher_name,
-      week: req.body.week,
-      grade: req.body.wafs_grade,
-      subjectDifficult: req.body.wafs_difficult_level,
-      subjectClarity: req.body.wafs_clarity_level,
-      subjectfRating: req.body.wafs_rating
+      wafs: {
+        teacher: req.body.teacher_names,
+        week: req.body.week,
+        grade: req.body.wafs_grade,
+        subjectDifficult: req.body.wafs_difficult_level,
+        subjectClarity: req.body.wafs_clarity_level,
+        subjectfRating: req.body.wafs_rating,
+      }
+    };
+    await listAnswer.insertOne(addAnswer)
+      .then(`inserted ${addAnswer.name}`);
+  } catch (error) {
+    console.warn(error);
+  } finally {
+    await client.close();
+    res.render('send', {
+      title: 'verzonden',
     });
-  console.log(req.body)
-  res.render('index', {
-    title: 'Enquete minor',
-  })
+  }
 })
 
 // page not found
