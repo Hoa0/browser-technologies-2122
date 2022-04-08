@@ -10,6 +10,7 @@ Enquete invullen over minor web development
 - [Concept](#concept)
 - [Functional layer](#Functionallayer)
 - [User Story](#UserStory)
+- [Progressive Enhancement](#ProgressiveEnhancement)
 - [Wireflow](#wireflow)
 - [Installation](#Installation)
 - [License](#License)
@@ -31,6 +32,17 @@ Enquete overzicht <br />
 ## User Story
 
 > Ik wil een enquête kunnen invullen over de minor Web Development, met verschillende antwoordmogelijkheden. Als ik de enquête niet afkrijg, wil ik later weer verder gaan met waar ik ben gebleven.
+
+## Progressive Enhancement
+
+Functional:<br />
+Student kan de enquete invullen en verzenden
+Reliable: <br />
+Het werkt altijd en op het zelfde manier
+Usable: <br />
+Css, kleuren contras toegepast zoadat het formulier leesbaar is
+Pleasurable: <br />
+Gebruikerservaring wordt verbetert waarbij de gebruiker de website met plezier kan bezoeken (niet toegepast)
 
 ## Wireflow
 
