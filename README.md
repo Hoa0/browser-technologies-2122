@@ -36,11 +36,11 @@ Enquete overzicht <br />
 ## Progressive Enhancement
 
 Functional:<br />
-Student kan de enquete invullen en verzenden
+Student kan de enquete invullen en verzenden<br />
 Reliable: <br />
-Het werkt altijd en op het zelfde manier
+Het werkt altijd en op het zelfde manier<br />
 Usable: <br />
-Css, kleuren contras toegepast zoadat het formulier leesbaar is
+Css, kleuren contras toegepast zoadat het formulier leesbaar is<br />
 Pleasurable: <br />
 Gebruikerservaring wordt verbetert waarbij de gebruiker de website met plezier kan bezoeken (niet toegepast)
 
