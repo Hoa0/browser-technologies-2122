@@ -1,15 +1,10 @@
 require("dotenv").config();
 const express = require('express')
 const app = express()
-const {
-  MongoClient
-} = require("mongodb");
 const bodyParser = require('body-parser')
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 8000;
 
-const client = new MongoClient(process.env.DB_URI, {
-  retryWrites: true,
-})
+const fs = require('fs')
 
 app.use(express.static('static'))
 app.use(bodyParser.json());
@@ -18,43 +13,44 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('view engine', 'ejs')
 
-
 app.get('/', (req, res) => {
-  res.render('index', {
+  res.render('index.ejs', {
     title: 'Enquete minor',
   })
 })
 
-app.post('/', async (req, res) => {
-  console.log(req.body);
+app.post('/', (req, res) => {
+ userInput = JSON.stringify(req.body)
 
-  try {
-    await client.connect();
-    const database = client.db('minorEnquete');
-    const listAnswer = database.collection('enqueteAnswer');
-    const addAnswer = {
-      studentName: req.body.student_name,
-      studentNumber: req.body.student_number,
-      wafs: {
-        teacher: req.body.teacher_names,
-        week: req.body.week,
-        grade: req.body.wafs_grade,
-        subjectDifficult: req.body.wafs_difficult_level,
-        subjectClarity: req.body.wafs_clarity_level,
-        subjectfRating: req.body.wafs_rating,
-      }
-    };
-    await listAnswer.insertOne(addAnswer)
-      .then(`inserted ${addAnswer.name}`);
-  } catch (error) {
-    console.warn(error);
-  } finally {
-    await client.close();
-    res.render('send', {
-      title: 'verzonden',
-    });
-  }
+  fs.writeFile('studentData.json', userInput, 'utf8', cb => {
+
+  });
+
+  res.redirect('/send')
 })
+
+app.get('/send', (req, res) => {
+  fs.readFile('studentData.json',(err, data) => {
+    let infoData = JSON.parse(data)
+    console.log(infoData)
+
+    res.render('send.ejs', {title: 'etq minor', data: infoData})
+  })
+  // fs.readFile('studentData.json', userInput, 'utf8', (err,data) => {
+  //   let infoData = JSON.parse(data);
+ 
+  //   console.log(data)
+  
+  // });
+  // res.render('send.ejs', {
+  //    title: 'Enquete minor',
+  //   data: {name: 'tetete'}
+  // })
+})
+
+
+
+
 
 // page not found
 app.use(function (req, res, next) {
@@ -64,3 +60,5 @@ app.use(function (req, res, next) {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
+
+//Code here
