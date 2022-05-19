@@ -13,6 +13,7 @@
 }
 
 body {
+    height: 130vh;
     color: var(--color-black);
     font-family: 'Poppins',
         sans-serif;
@@ -67,10 +68,18 @@ button {
 /*page send*/
 #containerSend {
     height: 60vh;
+    text-align:start;
+}
+
+#containerSend p{
     text-align: center;
 }
 
 footer {
     color: var(--color-white);
     text-align: center;
+    position: absolute;
+    bottom: -3em;
+    width: 100%;
+    margin: -1em;
 }
