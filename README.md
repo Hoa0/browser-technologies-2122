@@ -8,8 +8,10 @@ Enquete invullen over minor web development
 
 - [Opdrachten](#opdrachten)
 - [Concept](#concept)
+- [Core-functionaliteit](#cor-functionaliteit)
 - [Functional layer](#Functionallayer)
 - [User Story](#UserStory)
+- [Browser-test](#browser-test)
 - [Progressive Enhancement](#ProgressiveEnhancement)
 - [Wireflow](#wireflow)
 - [Installation](#Installation)
@@ -25,6 +27,12 @@ Opdracht 2: [Breek het web](https://github.com/Hoa0/browser-technologies-2122/wi
 Enquete overzicht <br />
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/concept-bt.png"  width="300">
 
+## Cor functionaliteit
+
+- [x] Naam en studentnummer invullen
+- [x] Vragen lijst invullen over de minor
+- [x] Foutmelding weergeven wanneer een veld niet is ingevuld.
+
 ## Functional layer
 
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/concept-styling-uit.png"  width="500">
@@ -32,6 +40,13 @@ Enquete overzicht <br />
 ## User Story
 
 > Ik wil een enquête kunnen invullen over de minor Web Development, met verschillende antwoordmogelijkheden. Als ik de enquête niet afkrijg, wil ik later weer verder gaan met waar ik ben gebleven.
+
+## Browser testen
+
+- [x] Safari
+- [x] Brave
+- [x] Chrome
+- [x] Firefox
 
 ## Progressive Enhancement
 
