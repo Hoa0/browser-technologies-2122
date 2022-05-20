@@ -1,85 +1,117 @@
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Poppins:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Poppins:wght@200&display=swap");
 
 :root {
-    --color-white: #f2e9e4;
-    --color-black: #343a40;
-    --color-btn: #94d2bd;
+  --color-white: #f2e9e4;
+  --color-black: #343a40;
+  --color-btn: #94d2bd;
 }
 
 body {
-    height: 130vh;
-    color: var(--color-black);
-    font-family: 'Poppins',
-        sans-serif;
-    background: rgb(0, 95, 115);
-    background: -moz-linear-gradient(10deg, rgba(0, 95, 115, 1) 0%, rgba(233, 216, 166, 1) 50%, rgba(0, 95, 115, 1) 100%);
-    background: -webkit-linear-gradient(10deg, rgba(0, 95, 115, 1) 0%, rgba(233, 216, 166, 1) 50%, rgba(0, 95, 115, 1) 100%);
-    background: linear-gradient(10deg, rgba(0, 95, 115, 1) 0%, rgba(233, 216, 166, 1) 50%, rgba(0, 95, 115, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#005f73", endColorstr="#005f73", GradientType=1);
+  height: 130vh;
+  color: var(--color-black);
+  font-family: "Poppins", sans-serif;
+  background: rgb(0, 95, 115);
+  background: -moz-linear-gradient(
+    10deg,
+    rgba(0, 95, 115, 1) 0%,
+    rgba(233, 216, 166, 1) 50%,
+    rgba(0, 95, 115, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    10deg,
+    rgba(0, 95, 115, 1) 0%,
+    rgba(233, 216, 166, 1) 50%,
+    rgba(0, 95, 115, 1) 100%
+  );
+  background: linear-gradient(
+    10deg,
+    rgba(0, 95, 115, 1) 0%,
+    rgba(233, 216, 166, 1) 50%,
+    rgba(0, 95, 115, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#005f73", endColorstr="#005f73", GradientType=1);
+}
+
+main {
+  margin: 0;
 }
 
 fieldset {
-    background-color: var(--color-white);
-    margin-bottom: 2em;
-    border-radius: 0.3em
+  background-color: var(--color-white);
+  margin-bottom: 2em;
+  border-radius: 0.3em;
 }
 
 fieldset legend {
-    font-weight: bold;
-    font-size: 1em;
-    padding: 0.5em;
-    width: 96%;
-    margin-bottom: 2%;
-    padding-left: 2%;
-    padding-right: 5px;
-    color: var(--color-white);
-    background-color: var(--color-black);
-    border-radius: 0.3em
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0.5em;
+  width: 96%;
+  margin-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 5px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 0.3em;
 }
 
 h1 {
-    color: var(--color-white);
-    text-align: center;
+  color: var(--color-white);
+  text-align: center;
 }
 
 h2 {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
-form>div {
-    text-align: center;
+form > div {
+  text-align: center;
 }
 
 button {
-    background-color: var(--color-btn);
-    padding: 0.8em;
-    border-radius: 0.3em;
-    border: 0.2em solid #b8dbcf;
-    font-weight: bold;
-    color: var(--color-black);
+  background-color: var(--color-btn);
+  padding: 0.8em;
+  border-radius: 0.3em;
+  border: 0.2em solid #b8dbcf;
+  font-weight: bold;
+  color: var(--color-black);
+  margin-bottom: 2em;
+}
+
+button:hover {
+  background-color: var(--color-white);
 }
 
 /*page send*/
 #containerSend {
-    height: 60vh;
-    text-align:start;
-}
-
-#containerSend p{
-    text-align: center;
+  height: 60vh;
+  text-align: start;
 }
 
 footer {
-    color: var(--color-white);
-    text-align: center;
-    position: absolute;
-    bottom: -3em;
-    width: 100%;
-    margin: -1em;
+  color: var(--color-white);
+  text-align: center;
+  position: absolute;
+  bottom: -3em;
+  width: 100%;
+  margin: -1em;
+}
+
+/*****************************/
+/*------ Website modes ------*/
+/*check if mediaquery support in css
+* https://kilianvalkhof.com/2021/web/detecting-media-query-support-in-css-and-javascript/
+*/
+@media not all and (prefers-reduced-data), (prefers-reduced-data) {
+  @media (min-width: 40em) {
+    main {
+      margin: 0 15%;
+    }
+  }
 }
