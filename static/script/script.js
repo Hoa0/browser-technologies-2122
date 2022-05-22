@@ -1,25 +1,21 @@
-
-// // save to localstorage
-// window.onbeforeunload = function () {
-//   const inputs = document.querySelectorAll('input[type="text"]');
-//   const inputNumber = document.querySelectorAll('input[type="number"]');
-//   const inputRadio = document.querySelectorAll("input[type=radio]:checked");
-
-//   // save radio buttons
-//   inputRadio.forEach((input) => {
-//     localStorage.setItem(input.name, input.id);
-//   });
-
-//   // save text fields
-//   inputs.forEach((input) => {
-//     localStorage.setItem(input.name, input.value);
-//   });
-
-//   // save number fields
-//   inputNumber.forEach((input) => {
-//     localStorage.setItem(input.name, input.value);
-//   });
-// };
+// Als localStorage beschikbaar is en voordat ik de pagina verlaat sla de data op in localStorage
+if ("localStorage" in window) {
+    // save to localstorage
+    window.onbeforeunload = function () {
+      const inputs = document.querySelectorAll('input[type="text"]');
+      const inputRadio = document.querySelectorAll("input[type=radio]:checked");
+  
+      // save radio buttons
+      inputRadio.forEach((input) => {
+        localStorage.setItem(input.name, input.id);
+      });
+  
+      // save text fields
+      inputs.forEach((input) => {
+        localStorage.setItem(input.name, input.value);
+      });
+    };
+  }
 
 
 //matchMedia mediaquery css support

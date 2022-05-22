@@ -4,10 +4,13 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-white: #f2e9e4;
-  --color-black: #343a40;
-  --color-btn: #94d2bd;
+/* Als browser CSS variabelen ondersteund */
+@supports (--css: variables) {
+  :root {
+    --color-white: #f2e9e4;
+    --color-black: #343a40;
+    --color-btn: #94d2bd;
+  }    
 }
 
 body {
@@ -43,7 +46,7 @@ main {
 }
 
 fieldset {
-  background-color: var(--color-white);
+  background-color: #fff;
   margin-bottom: 2em;
   border-radius: 0.3em;
 }
@@ -56,15 +59,43 @@ fieldset legend {
   margin-bottom: 2%;
   padding-left: 2%;
   padding-right: 5px;
-  color: var(--color-white);
-  background-color: var(--color-black);
+  color: #fff;
+  background-color: #000;
   border-radius: 0.3em;
 }
 
 h1 {
-  color: var(--color-white);
+  color: #fff;
   text-align: center;
 }
+
+/* Als de browser variabelen ondersteunt verander de CSS kleuren naar die anders gebruik styling hierboven*/
+@supports (--css: variables) {
+  fieldset {
+    background-color: var(--color-white);
+    margin-bottom: 2em;
+    border-radius: 0.3em;
+  }
+  
+  fieldset legend {
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0.5em;
+    width: 96%;
+    margin-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 5px;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border-radius: 0.3em;
+  }
+
+  h1 {
+    color: var(--color-white);
+    text-align: center;
+  }
+}
+
 
 h2 {
   font-size: 1.2em;
@@ -72,6 +103,19 @@ h2 {
 
 form > div {
   text-align: center;
+}
+
+#btn-prev, #btn_edit{
+  background-color: var(--color-btn);
+  padding: 0.49em;
+  border-radius: 0.3em;
+  border: 0.2em solid #b8dbcf;
+  font-weight: bold;
+  font-size: 1em;
+  color: var(--color-black);
+  margin-bottom: 2em;
+  text-decoration: none;
+  width: 3em;
 }
 
 button {
@@ -84,7 +128,7 @@ button {
   margin-bottom: 2em;
 }
 
-button:hover {
+button:hover,#btn-prev:hover, #btn_edit:hover {
   background-color: var(--color-white);
 }
 
@@ -92,6 +136,13 @@ button:hover {
 #containerSend {
   height: 60vh;
   text-align: start;
+}
+
+select#select_edit{
+  margin:2em 0;
+  height: 4em;
+  width: 50%;
+  border-radius: 0.3em;
 }
 
 .show {
