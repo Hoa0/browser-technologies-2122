@@ -1,0 +1,267 @@
+<%- include('partials/head'); -%>
+    <form method="post" action="/end">
+        <fieldset>
+                <h2>1. Welke docenten had je voor dit vak?</h2>
+                <!-- Check op basis van prefix in app.js + value -->
+                <% if(wafs && wafs.teacher === 'teacher-Joost-en-Koop') { %>
+                        <input type="radio" id="Joost-en-Koop" value="Joost-en-Koop" name="teacher" checked />
+                        <% } else { %>
+                        <input type="radio" id="Joost-en-Koop" value="Joost-en-Koop" name="teacher" required />
+                        <% } %>
+                        <label for="Joost-en-Koop">Joost en Koop</label>
+
+                        <% if(wafs && wafs.teacher === 'teacher-Sanne-en-Vasilis') { %>
+                        <input type="radio" id="Sanne-en-Vasilis" value="Sanne-en-Vasilis" name="teacher" checked />
+                        <% } else { %>
+                        <input type="radio" id="Sanne-en-Vasilis" value="Sanne-en-Vasilis" name="teacher" />
+                        <% } %>
+                        <label for="Sanne-en-Vasilis">Sanne en Vasilis</label>
+
+                        <% if(wafs && wafs.teacher === 'teacher-Robert-en-Peter') { %>
+                        <input type="radio" id="Robert-en-Peter" value="Robert-en-Peter" name="teacher" checked />
+                        <% } else { %>
+                        <input type="radio" id="Robert-en-Peter" value="Robert-en-Peter" name="teacher" />
+                        <% } %>
+                        <label for="Robert-en-Peter">Robert en Peter</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch</legend>
+            <h2>2. In welke weken heb je het vak WAFS gevolgd? </h2>
+            <% if(wafs && wafs.week === 'week-1-4') { %>
+                <input type="radio" id="1-4" value="1-4" name="week" checked />
+                <% } else { %>
+                <input type="radio" id="1-4" value="1-4" name="week" required />
+                <% } %>
+                <label for="1-4">Week 1 tot en met 4</label>
+
+                <% if(wafs && wafs.week === 'week-4-7') { %>
+                <input type="radio" id="4-7" value="4-7" name="week" checked />
+                <% } else { %>
+                <input type="radio" id="4-7" value="4-7" name="week" />
+                <% } %>
+                <label for="4-7">Weel 4 tot en met 7</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>3. Wat vond je van het vak WAFS?</h2>
+            <p>Geef een cijfer van 1 t/m 10, waar 1 de laagste score is</p>
+            <% if(wafs && wafs.grade === 'grade-1') { %>
+                <input type="radio" id="1" value="1" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="1" value="1" name="grade" required/>
+                <% } %>
+                <label for="1">1</label>
+
+        <% if(wafs && wafs.grade === 'grade-2') { %>
+                <input type="radio" id="2" value="2" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="2" value="2" name="grade" />
+                <% } %>
+                <label for="2">2</label>
+
+        <% if(wafs && wafs.grade === 'grade-3') { %>
+                <input type="radio" id="3" value="3" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="3" value="3" name="grade" />
+                <% } %>
+                <label for="3">3</label>
+
+        <% if(wafs && wafs.grade === 'grade-4') { %>
+                <input type="radio" id="4" value="4" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="4" value="4" name="grade" />
+                <% } %>
+                <label for="4">4</label>
+
+        <% if(wafs && wafs.grade === 'grade-5') { %>
+                <input type="radio" id="5" value="5" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="5" value="5" name="grade" />
+                <% } %>
+                <label for="5">5</label>
+
+        <% if(wafs && wafs.grade === 'grade-6') { %>
+                <input type="radio" id="6" value="6" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="6" value="6" name="grade" />
+                <% } %>
+                <label for="6">6</label>
+
+        <% if(wafs && wafs.grade === 'grade-7') { %>
+                <input type="radio" id="7" value="7" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="7" value="7" name="grade" />
+                <% } %>
+                <label for="7">7</label>
+
+        <% if(wafs && wafs.grade === 'grade-8') { %>
+                <input type="radio" id="8" value="8" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="8" value="8" name="grade" />
+                <% } %>
+                <label for="8">8</label>
+
+        <% if(wafs && wafs.grade === 'grade-9') { %>
+                <input type="radio" id="9" value="9" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="9" value="9" name="grade" />
+                <% } %>
+                <label for="9">9</label>
+
+        <% if(wafs && wafs.grade === 'grade-10') { %>
+                <input type="radio" id="10" value="10" name="grade" checked />
+                <% } else { %>
+                <input type="radio" id="10" value="10" name="grade" />
+                <% } %>
+                <label for="10">10</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>4. Hoe moeilijk vond je het vak WAFS?</h2>
+            <p>Was de lesstof te volgen?</p>
+        <% if(wafs && wafs.difficult === 'difficult-very-easy') { %>
+                <input type="radio" id="very-easy" value="very-easy" name="difficult" checked />
+                <% } else { %>
+                <input type="radio" id="very-easy" value="very-easy" name="difficult" required/>
+                <% } %>
+                <label for="very-easy">Super Makkelijk</label>
+
+        <% if(wafs && wafs.difficult === 'difficult-easy') { %>
+                <input type="radio" id="easy" value="easy" name="difficult" checked />
+                <% } else { %>
+                <input type="radio" id="easy" value="easy" name="difficult" />
+                <% } %>
+                <label for="easy">Makkelijk</label>
+
+        <% if(wafs && wafs.difficult === 'difficult-difficult') { %>
+                <input type="radio" id="difficult" value="difficult" name="difficult" checked />
+                <% } else { %>
+                <input type="radio" id="difficult" value="difficult" name="difficult" />
+                <% } %>
+                <label for="difficult">Moeilijk</label>
+
+        <% if(wafs && wafs.difficult === 'difficult-very-difficult') { %>
+                <input type="radio" id="very-difficult" value="very-difficult" name="difficult" checked />
+                <% } else { %>
+                <input type="radio" id="very-difficult" value="very-difficult" name="difficult" />
+                <% } %>
+                <label for="very-difficult">Te Moe</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>5. Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
+            <% if(wafs && wafs.clarity === 'clarity-dont-understand') { %>
+                <input type="radio" id="dont-understand" value="dont-understand" name="clarity" checked />
+                <% } else { %>
+                <input type="radio" id="dont-understand" value="dont-understand" name="clarity" required/>
+                <% } %>
+                <label for="dont-understand">Ik begreep het vak helemaal niet</label>
+
+        <% if(wafs && wafs.clarity === 'clarity-understand-little') { %>
+                <input type="radio" id="understand-little" value="understand-little" name="clarity" checked />
+                <% } else { %>
+                <input type="radio" id="understand-little" value="understand-little" name="clarity" />
+                <% } %>
+                <label for="understand-little">Ik begreep het een beetje</label>
+
+        <% if(wafs && wafs.clarity === 'clarity-understand-half') { %>
+                <input type="radio" id="understand-half" value="understand-half" name="clarity" checked />
+                <% } else { %>
+                <input type="radio" id="understand-half" value="understand-half" name="clarity" />
+                <% } %>
+                <label for="sunderstand-half">Ik begreep ongeveer de helft</label>
+
+        <% if(wafs && wafs.clarity === 'clarity-very-clarity') { %>
+                <input type="radio" id="very-clarity" value="very-clarity" name="clarity" checked />
+                <% } else { %>
+                <input type="radio" id="very-clarity" value="very-clarity" name="clarity" />
+                <% } %>
+                <label for="very-clarity">Ik begreep alles</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Vak &#45; Web app from scratch </legend>
+            <h2>6. Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
+            <p>Geef een cijfer van 1 t/m 10, een score van 1 geeft aan dat je het totaal niet begrijpt.</p>
+            <% if(wafs && wafs.understanding === 'understanding-1') { %>
+                <input type="radio" id="understanding-1" value="1" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-1" value="1" name="understanding" required/>
+                <% } %>
+                <label for="understanding-1">1</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-2') { %>
+                <input type="radio" id="understanding-2" value="2" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-2" value="2" name="understanding" />
+                <% } %>
+                <label for="understanding-2">2</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-3') { %>
+                <input type="radio" id="understanding-3" value="3" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-3" value="3" name="understanding" />
+                <% } %>
+                <label for="understanding-3">3</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-4') { %>
+                <input type="radio" id="understanding-4" value="4" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-4" value="4" name="understanding" />
+                <% } %>
+                <label for="understanding-4">4</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-5') { %>
+                <input type="radio" id="understanding-5" value="5" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-5" value="5" name="understanding" />
+                <% } %>
+                <label for="understanding-5">5</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-6') { %>
+                <input type="radio" id="understanding-6" value="6" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-6" value="6" name="understanding" />
+                <% } %>
+                <label for="understanding-6">6</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-7') { %>
+                <input type="radio" id="understanding-7" value="7" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-7" value="7" name="understanding" />
+                <% } %>
+                <label for="understanding-7">7</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-8') { %>
+                <input type="radio" id="understanding-8" value="8" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-8" value="8" name="understanding" />
+                <% } %>
+                <label for="understanding-8">8</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-9') { %>
+                <input type="radio" id="understanding-9" value="9" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-9" value="9" name="understanding" />
+                <% } %>
+                <label for="understanding-9">9</label>
+
+        <% if(wafs && wafs.understanding === 'understanding-10') { %>
+                <input type="radio" id="understanding-10" value="10" name="understanding" checked />
+                <% } else { %>
+                <input type="radio" id="understanding-10" value="10" name="understanding" />
+                <% } %>
+                <label for="understanding-10">10</label>
+        </fieldset>
+        <div>
+            <a href="/">Vorige</a>
+            <button id="btn-submit" type="submit" value="verzenden">Verzenden</button>
+        </div>
+    </form>
+
+
+    <%- include('partials/footer'); -%>

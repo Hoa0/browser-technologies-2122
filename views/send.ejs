@@ -1,37 +1,12 @@
 <%- include('partials/head'); -%>
     <section id="containerSend">
         <h2>Bedankt voor het invullen, je antwoorden zijn verzonden!</h2>
-        <h2>Hi, <%- data?.student_name %>
-        </h2>
 
-        <h2>Vak &#45; Web app from scratch</2>
-            <h3>1. Welke docenten had je voor dit vak?</h3>
-            <p>
-                <%- data.teacher_names %>
-            </p>
-
-            <h2>2. In welke weken heb je het vak WAFS gevolgd? </h2>
-            <p>
-                <%- data.week %>
-            </p>
-
-            <h2>3. Wat vond je van het vak WAFS?</h2>
-            <p>
-                <%-data.wafs_grade %>
-            </p>
-
-            <h2>4. Hoe moeilijk vond je het vak WAFS?</h2>
-            <p>
-                <%-data.wafs_difficult_level %>
-            </p>
-
-            <h2>5. Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
-            <p>
-                <%-data.wafs_clarity_level %>
-            </p>
-            <h2>6. Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
-            <p>
-                <%-data.wafs_rating %>
-            </p>
+        <label>Enquete antwoorden wijzingen?</label>
+        <select name="change" id="select_edit">
+            <option value="/" selected>Persoonsgegevens</option>
+            <option value="/wafs">Web Apps From Scratch</option>
+        </select>
+        <a id="btn_edit" href="/">Antwoorden wijzigen</a>
     </section>
     <%- include('partials/footer'); -%>

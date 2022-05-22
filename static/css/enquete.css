@@ -94,6 +94,10 @@ button:hover {
   text-align: start;
 }
 
+.show {
+  display: block;
+}
+
 footer {
   color: var(--color-white);
   text-align: center;

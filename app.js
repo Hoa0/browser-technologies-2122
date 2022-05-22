@@ -1,64 +1,92 @@
-require("dotenv").config();
-const express = require('express')
-const app = express()
+const express = require(`express`);
+const env = require('dotenv')
+const app = express();
 const bodyParser = require('body-parser')
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
+const fs = require('fs');
+let stringData;
 
-const fs = require('fs')
-
-app.use(express.static('static'))
-app.use(bodyParser.json());
+app.use(express.static('static'));
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+
+const renderPages = (res, route) => {
+    if (route !== 'manifest.json') {
+        fs.readFile(`json/${route}.json`, 'utf8', (err, data) => {
+            if (err) throw err;
+            let infoFromEnquete
+            if (data) {
+                infoFromEnquete = JSON.parse(data);
+            }
+
+            if (route === 'student') {
+                res.render('index', {
+                    student: infoFromEnquete
+                });
+            }
+            if (route === 'wafs') {
+                res.render('wafs', {
+                    wafs: infoFromEnquete
+                });
+            }
+        });
+    }
+}
+
+const infoFromEnquete = (req) => {
+    return {
+        "teacher":`teacher-${req.body.teacher}`,
+        "week":`week-${req.body.week}`,
+        "grade":`grade-${req.body.grade}`,
+        "difficult":`difficult-${req.body.difficult}`,
+        "clarity":`clarity-${req.body.clarity}`,
+        "understanding":`understanding-${req.body.understanding}`,
+    }
+}
 
 app.get('/', (req, res) => {
-  res.render('index.ejs', {
-    title: 'Enquete minor',
-  })
-})
+    renderPages(res, 'student')
+});
 
-app.post('/', (req, res) => {
- userInput = JSON.stringify(req.body)
+app.get('/:id', (req, res) => {
+    const route = req.params.id;
+    renderPages(res, route)
+});
 
-  fs.writeFile('studentData.json', userInput, 'utf8', cb => {
+app.post('/wafs', (req, res) => {
+    const student = {
+        "naam": req.body.naam,
+        "studentnummer": req.body.studentnummer
+    }
+    stringData = JSON.stringify(student);
 
-  });
-
-  res.redirect('/send')
-})
-
-app.get('/send', (req, res) => {
-  fs.readFile('studentData.json',(err, data) => {
-    let infoData = JSON.parse(data)
-    console.log(infoData)
-
-    res.render('send.ejs', {title: 'etq minor', data: infoData})
-  })
-  // fs.readFile('studentData.json', userInput, 'utf8', (err,data) => {
-  //   let infoData = JSON.parse(data);
- 
-  //   console.log(data)
-  
-  // });
-  // res.render('send.ejs', {
-  //    title: 'Enquete minor',
-  //   data: {name: 'tetete'}
-  // })
-})
+    fs.writeFile('json/student.json', stringData, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    renderPages(res, 'wafs')
+});
 
 
+app.post('/end', (req, res) => {
+    const wafs = infoFromEnquete(req);
+    stringData = JSON.stringify(wafs);
 
+    fs.writeFile('json/wafs.json', stringData, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    });
+    res.render('send');
+});
 
-
-// page not found
-app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!");
+app.use((req, res) => {
+    res.status(404).send('Sorry, deze pagina kon ik niet vinden.');
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
-})
-
-//Code here
+    console.log(`Listening on port: ${PORT}`);
+});

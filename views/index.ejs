@@ -1,130 +1,22 @@
 <%- include('partials/head'); -%>
-    <form method="post" enctype="application/x-www-form-urlencoded" action="/">
+<form method="POST" action="/wafs">
         <fieldset>
-            <legend>Vul je gegevens in</legend>
-            <label for="studentName">Name:
-                <input type="text" name="student_name" placeholder="studentnaam" arial-label="fill your name" required>
-            </label>
-            <label>Studentnummer:
-                <input type="number" name="student_number" placeholder="studentnummer"
-                    arial-label="fill your student number" required>
-            </label>
+            <legend>Jouw gegevens</legend>
+            <br>
+            <label for="naam">Naam (voor- en achternaam):</label>
+            <br>
+            <input class="naam" type="text" id="naam" name="naam" value="<%= student ? student.naam : '' %>"
+                minlength="2" required />
+            <br><br>
+            <label for="studentnummer">Studentnummer:</label>
+            <br>
+            <input type="text" minlength="9" maxlength="9" pattern="\d*" id="studentnummer" name="studentnummer"
+                value="<%= student ? student.studentnummer : '' %>" required />
+            <br><br>
+            <button id="submitButton" class="submitButtonHome" type="submit" value="Start enquête">Start
+                enquête</button>
+            <br><br>
         </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch</legend>
-            <h2>1. Welke docenten had je voor dit vak?</h2>
-            <p>Meerdere antwoorden mogelijk</p>
-            <label for="teacher_a">
-                <input id="teacher_a" type="radio" name="teacher_names" value="Joost en Koop"
-                    arial-label="teacher name Joost and Koop" required>Joost en Koop
-            </label>
-            <label for="teacher_b">
-                <input id="teacher_b" type="radio" name="teacher_names" value="Sanne en Vasilis"
-                    arial-label="teacher name Sanne and Vasilis">Sanne en Vasilis
-            </label>
-            <label for="teacher_c">
-                <input id="teacher_c" type="radio" name="teacher_names" value="Peter en Robert"
-                    arial-label="teacher name Peter and Robert">Peter en Robert
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch</legend>
-            <h2>2. In welke weken heb je het vak WAFS gevolgd? </h2>
-            <div><label for="date_week_1"><input id="date_week_1" type="radio" name="week" value="week 1 t/m 4"
-                        arial-label="week one till four " required>Week 1
-                    t/m 4</label>
-            </div>
-
-            <div><label for="date_week_2"><input id="date_week_2" type="radio" name="week" value="Week 4 t/m 7"
-                        arial-label="week four till seven ">Week 4
-                    t/m 7</label>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch </legend>
-            <h2>3. Wat vond je van het vak WAFS?</h2>
-            <p>Geef een cijfer van 1 t/m 10, waar 1 de laagste score is</p>
-            <label for="wafs-grade_1"><input type="radio" name="wafs_grade" id="wafs_grade_1" value="1"
-                    arial-label="give a grade for wafs, grade 1" required>1</label>
-            <label for="wafs_grade_2"><input type="radio" name="wafs_grade" id="wafs_grade_2" value="2"
-                    arial-label="give a grade for wafs, grade 2">2</label>
-            <label for="wafs_grade_3"><input type="radio" name="wafs_grade" id="wafs_grade_3" value="3"
-                    arial-label="give a grade for wafs, grade 3">3</label>
-            <label for="wafs_grade_4"><input type="radio" name="wafs_grade" id="wafs_grade_4" value="4"
-                    arial-label="give a grade for wafs, grade 4">4</label>
-            <label for="wafs_grade_5"><input type="radio" name="wafs_grade" id="wafs_grade_5" value="5"
-                    arial-label="give a grade for wafs, grade 5">5</label>
-            <label for="wafs_grade_6"><input type="radio" name="wafs_grade" id="wafs_grade_6" value="6"
-                    arial-label="give a grade for wafs, grade 6">6</label>
-            <label for="wafs_grade_7"><input type="radio" name="wafs_grade" id="wafs_grade_7" value="7"
-                    arial-label="give a grade for wafs, grade 7">7</label>
-            <label for="wafs_grade_8"><input type="radio" name="wafs_grade" id="wafs_grade_8" value="8"
-                    arial-label="give a grade for wafs, grade 8">8</label>
-            <label for="wafs_grade_9"><input type="radio" name="wafs_grade" id="wafs_grade_9" value="9"
-                    arial-label="give a grade for wafs, grade 9">9</label>
-            <label for="wafs_grade_10"><input type="radio" name="wafs_grade" id="wafs_grade_10" value="10"
-                    arial-label="give a grade for wafs, grade 10">10</label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch </legend>
-            <h2>4. Hoe moeilijk vond je het vak WAFS?</h2>
-            <p>Was de lesstof te volgen?</p>
-            <select name="wafs_difficult_level" id="wafs_difficult"
-                arial-label="select for wafs level, give your opinion" required>
-                <option value="" selected disabled>Geef je mening</option>
-                <option value="Heel makkelijk" arial-label="Its is very easy">Heel makkelijk</option>
-                <option value="Makkelijk" arial-label="easy">Makkelijk</option>
-                <option value="Een beetje moeilijk" arial-label="little bit difficult">Een beetje moeilijk</option>
-                <option value="Moeilijk" arial-label="difficult">Moeilijk</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch </legend>
-            <h2>5. Hoe duidelijk werd het vak WAFS uitgelegd?</h2>
-            <select name="wafs_clarity_level" id="wafs_clarity" aria-label="Was the minor wafs clarity?" required>
-                <option value="" selected disabled aria-label="give your opinion">Geef je mening</option>
-                <option value="Begreep het vak niet" aria-label="I don't understand">Ik begreep het vak helemaal niet
-                    goed</option>
-                <option value="Ik begreep een beetje" aria-label="I understand a little bit">Ik begreep een beetje
-                </option>
-                <option value="Ik begreep ongeveer de helft" aria-label="I understand half of it">Ik begreep ongeveer de
-                    helft</option>
-                <option value="Ik begreep bijna alles" aria-label="Almost everything">Ik begreep bijna alles</option>
-                <option value="Begreep alles" aria-label="understand everything">Ik begreep alles</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-            <legend>Vak &#45; Web app from scratch </legend>
-            <h2>6. Hoe goed vind je dat je het vak WAFS begrijpt?</h2>
-            <p>Geef een cijfer van 1 t/m 10, een score van 1 geeft aan dat je het totaal niet begrijpt.</p>
-            <label for="wafs_understand_1"><input type="radio" name="wafs_rating" id="wafs_understand-1" value="1"
-                    aria-label="Understand wafs, grade one" required>1</label>
-            <label for="wafs_understand_2" aria-label="Understand wafs, grade two"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_2" value="2">2</label>
-            <label for="wafs_understand_3" aria-label="Understand wafs, grade three"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_3" value="3">3</label>
-            <label for="wafs_understand_4" aria-label="Understand wafs, grade four"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_4" value="4">4</label>
-            <label for="wafs_understand_5" aria-label="Understand wafs, grade five"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_5" value="5">5</label>
-            <label for="wafs_understand_6" aria-label="Understand wafs, grade six"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_6" value="6">6</label>
-            <label for="wafs_understand_7" aria-label="Understand wafs, grade seven"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_7" value="7">7</label>
-            <label for="wafs_understand_8" aria-label="Understand wafs, grade eight"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_8" value="8">8</label>
-            <label for="wafs_understand_9" aria-label="Understand wafs, grade nine"><input type="radio"
-                    name="wafs_rating" id="wafs_gunderstand_9" value="9">9</label>
-            <label for="wafs_understand_10" aria-label="Understand wafs, grade ten"><input type="radio"
-                    name="wafs_rating" id="wafs_understand_10" value="10">10</label>
-        </fieldset>
-        <div> <button type="submit" value="send" aria-label="send the enquete">Verstuur deze enquete</button></div>
     </form>
 
     <%- include('partials/footer'); -%>
