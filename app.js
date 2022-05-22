@@ -12,30 +12,31 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('view engine', 'ejs');
 
-const renderPages = (res, route) => {
+const renderEnquete = (res, route) => {
     if (route !== 'manifest.json') {
-        fs.readFile(`json/${route}.json`, 'utf8', (err, data) => {
-            if (err) throw err;
-            let infoFromEnquete
+        fs.readFile(`static/json/${route}.json`, 'utf8', (err, data) => {
+            let dataFromJSON
             if (data) {
-                infoFromEnquete = JSON.parse(data);
+                dataFromJSON = JSON.parse(data);
             }
-
+            
             if (route === 'student') {
                 res.render('index', {
-                    student: infoFromEnquete
+                    student: dataFromJSON
                 });
             }
             if (route === 'wafs') {
                 res.render('wafs', {
-                    wafs: infoFromEnquete
+                    wafs: dataFromJSON
                 });
             }
+
+            if (err) console.log(err);
         });
     }
 }
 
-const infoFromEnquete = (req) => {
+const dataEnquete = (req) => {
     return {
         "teacher":`teacher-${req.body.teacher}`,
         "week":`week-${req.body.week}`,
@@ -47,12 +48,12 @@ const infoFromEnquete = (req) => {
 }
 
 app.get('/', (req, res) => {
-    renderPages(res, 'student')
+    renderEnquete(res, 'student')
 });
 
 app.get('/:id', (req, res) => {
     const route = req.params.id;
-    renderPages(res, route)
+    renderEnquete(res, route)
 });
 
 app.post('/wafs', (req, res) => {
@@ -62,20 +63,20 @@ app.post('/wafs', (req, res) => {
     }
     stringData = JSON.stringify(student);
 
-    fs.writeFile('json/student.json', stringData, (err) => {
+    fs.writeFile('static/json/student.json', stringData, (err) => {
         if (err) {
             console.log(err)
         }
     });
-    renderPages(res, 'wafs')
+    renderEnquete(res, 'wafs')
 });
 
 
 app.post('/end', (req, res) => {
-    const wafs = infoFromEnquete(req);
+    const wafs = dataEnquete(req);
     stringData = JSON.stringify(wafs);
 
-    fs.writeFile('json/wafs.json', stringData, (err) => {
+    fs.writeFile('static/json/wafs.json', stringData, (err) => {
         if (err) {
             console.log(err)
         }

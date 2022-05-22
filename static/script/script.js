@@ -1,22 +1,3 @@
-// // when required isn't supported this function will prevent the user from submitting the form without filling in all
-// // the input fields
-// var inputs = document.querySelectorAll("input");
-// var form = document.querySelector("form");
-// var btn = document.querySelector("button");
-// // var rrr = document.querySelector('')
-
-// function checkInputs() {
-//   form.addEventListener("submit", function (event) {
-//     for (var i = 0; i < inputs.length; i++) {
-//       if (inputs[i].value.length == 0) {
-//         event.preventDefault();
-//         alert("Nog niet alle velden zijn ingevuld, vul verder in");
-//       }
-//     }
-//   });
-// }
-
-// checkInputs();
 
 // // save to localstorage
 // window.onbeforeunload = function () {
@@ -40,14 +21,14 @@
 //   });
 // };
 
-// //matchMedia mediaquery css support
-// const query = "(prefers-reduced-data)";
-// const resolvedMediaQuery = window.matchMedia(query).media;
 
-// const isSupported = query === resolvedMediaQuery;
+//matchMedia mediaquery css support
+const query = "(prefers-reduced-data)";
+const resolvedMediaQuery = window.matchMedia(query).media;
 
-
-// if the user wants to change a answer, this brings them to the page they chose to change the answers of
+const isSupported = query === resolvedMediaQuery;
+  
+// select option, redirect page for edit
 let option_edit_page = document.getElementById('select_edit');
 let edit_enquete = document.getElementById('btn_edit');
 
@@ -57,10 +38,17 @@ if (option_edit_page) {
     option_edit_page.addEventListener('change', function () {
         edit_enquete.setAttribute('href', option_edit_page.value);
     });
-    // check if classlist is supported or not
+    
+    // check of classlist support
     if (document.body.classList) {
-        option_edit_page.classList.add('show'); //only show the select when javascript works
+        option_edit_page.classList.add('show'); 
     } else {
         option_edit_page.style.display = 'block';
     }
 }
+
+
+/**
+ * source
+ * media-query -> https://kilianvalkhof.com/2021/web/detecting-media-query-support-in-css-and-javascript/
+ */
