@@ -59,7 +59,6 @@ Enquete einde - html, css, js<br />
 - required, wordt bij elke geteste browsers ondersteund
 - css uitzetten, core functionaliteit werkt nog in zijn geheel
 
-### test verslag
 
 ## Feature detection
 - [x] Media-query: Check of de browser @media query ondersteund, zoniet? geeft het dan aan
