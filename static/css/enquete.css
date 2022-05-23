@@ -45,6 +45,11 @@ main {
   margin: 0;
 }
 
+input#naam, input#studentnummer{
+  height: 2em;
+  font-size: 1.2em;
+}
+
 fieldset {
   background-color: #fff;
   margin-bottom: 2em;
