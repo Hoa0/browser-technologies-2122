@@ -33,8 +33,8 @@ Opdracht 2: [Breek het web](https://github.com/Hoa0/browser-technologies-2122/wi
 Enquete overzicht - alleen html <br />
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/bt-1.png"  width="300">
 
-Enquete vragen - html, css, js <br />
-<img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/bt-3.png"  width="300">
+Enquete vragen - html, css <br />
+<img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/bt-2.png"  width="300">
 
 Enquete einde - html, css, js<br />
 <img src="https://github.com/Hoa0/browser-technologies-2122/blob/main/static/images/readme/bt-3.png"  width="300">
